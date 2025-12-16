@@ -12,7 +12,7 @@ State* ConcreteHistoryIterator::next() {
         index++;
         return historyRef[index];
     }
-    return nullptr;
+    return 0;
 }
 
 bool ConcreteHistoryIterator::hasPrevious() {
@@ -24,5 +24,5 @@ State* ConcreteHistoryIterator::previous() {
         index--;
         return historyRef[index];
     }
-    return nullptr;
+    return 0;
 }
