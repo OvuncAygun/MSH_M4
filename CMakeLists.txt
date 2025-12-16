@@ -18,6 +18,9 @@ target_include_directories(MSH_M4
 target_sources(MSH_M4
     PRIVATE
         src/MSH_M4.cpp
+        src/StateManager.cpp
+        src/State.cpp
+        src/ConcreteHistoryIterator.cpp
     
     PUBLIC
         ${CMAKE_CURRENT_SOURCE_DIR}/include/MSH_M4.h
