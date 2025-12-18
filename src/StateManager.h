@@ -4,8 +4,9 @@
 #include <vector>
 #include "State.h"
 #include "HistoryIterator.h"
+#include "IStateManager.h"
 
-class StateManager {
+class StateManager : public IStateManager {
 private:
     State* currentState;
     std::vector<State*> history;
@@ -17,9 +18,11 @@ public:
     StateManager();
     ~StateManager();
 
-    void setState(State* s);
-    void restorePrevious();
-    void restoreNext();
+    IState* getCurrentState() override;
+
+    void setState(State* s) override;
+    void restorePrev() override;
+    void restoreNext() override;
     HistoryIterator* getHistoryIterator();
 };
 

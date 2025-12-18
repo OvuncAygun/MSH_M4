@@ -1,12 +1,14 @@
 #ifndef STATE_H
 #define STATE_H
 
+#include "IState.h"
+
 #include <string>
 
 // =============================
 // Abstract State
 // =============================
-class State {
+class State : public IState {
 protected:
     std::string name;
 
@@ -15,7 +17,7 @@ public:
     virtual ~State();
 
     virtual void apply() = 0;
-    std::string getName() const;
+    std::string getName() const override;
 };
 
 // =============================

@@ -2,7 +2,7 @@
 #include "ConcreteHistoryIterator.h"
 
 StateManager::StateManager()
-    : currentState(nullptr), iterator(nullptr) {}
+    : currentState(0), iterator(0) {}
 
 StateManager::~StateManager() {
     delete iterator;
@@ -25,6 +25,10 @@ StateManager::~StateManager() {
     }
 }
 
+IState* StateManager::getCurrentState(){
+    return currentState;
+}
+
 void StateManager::storeCurrentState() {
     if (currentState) {
         history.push_back(currentState);
@@ -37,7 +41,7 @@ void StateManager::setState(State* s) {
     currentState->apply();
 }
 
-void StateManager::restorePrevious() {
+void StateManager::restorePrev() {
     if (iterator && iterator->hasPrevious()) {
         currentState = iterator->previous();
         currentState->apply();
