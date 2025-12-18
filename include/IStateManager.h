@@ -8,7 +8,7 @@ public:
 
     virtual IState* getCurrentState() = 0;
 
-    virtual void setState(State* s) = 0;
+    virtual void setState(IState* s) = 0;
 
     virtual void restorePrev() = 0;
     virtual void restoreNext() = 0;

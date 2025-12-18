@@ -20,7 +20,7 @@ public:
 
     IState* getCurrentState() override;
 
-    void setState(State* s) override;
+    void setState(IState* s) override;
     void restorePrev() override;
     void restoreNext() override;
     HistoryIterator* getHistoryIterator();

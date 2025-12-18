@@ -35,9 +35,9 @@ void StateManager::storeCurrentState() {
     }
 }
 
-void StateManager::setState(State* s) {
+void StateManager::setState(IState* s) {
     storeCurrentState();
-    currentState = s;
+    currentState = static_cast<State*>(s);
     currentState->apply();
 }
 
