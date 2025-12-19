@@ -11,10 +11,10 @@ void MSH_M4::initializeStates() {
     LowPower* lowPower = new LowPower();
     Sleep* sleep = new Sleep();
 
-    states[0] = normal;
-    states[1] = highPerf;
-    states[2] = lowPower;
-    states[3] = sleep;
+    states.push_back(normal);
+    states.push_back(highPerf);
+    states.push_back(lowPower);
+    states.push_back(sleep);
 }
 
 void MSH_M4::initializeStateManager() {
