@@ -1,7 +1,7 @@
 #include "ConcreteHistoryIterator.h"
 
 ConcreteHistoryIterator::ConcreteHistoryIterator(std::vector<State*>& h)
-    : historyRef(h), index(h.size()) {}
+    : historyRef(h), index(h.empty() ? -1 : (int)h.size() - 1) {}
 
 bool ConcreteHistoryIterator::hasNext() {
     return index + 1 < (int)historyRef.size();
@@ -16,7 +16,7 @@ State* ConcreteHistoryIterator::next() {
 }
 
 bool ConcreteHistoryIterator::hasPrevious() {
-    return index - 1 >= 0;
+    return index > 0;
 }
 
 State* ConcreteHistoryIterator::previous() {
@@ -28,14 +28,10 @@ State* ConcreteHistoryIterator::previous() {
 }
 
 void ConcreteHistoryIterator::addState(State* state) {
-    if (index < (int)historyRef.size() - 1) {
-        
-        for (size_t i = index + 1; i < historyRef.size(); ++i) {
-            delete historyRef[i]; 
-        }
+    if (index + 1 < (int)historyRef.size()) {
         
         historyRef.erase(historyRef.begin() + index + 1, historyRef.end());
     }
     historyRef.push_back(state);
-    index = historyRef.size() - 1;
+    index = ((int)historyRef.size()) - 1;
 }

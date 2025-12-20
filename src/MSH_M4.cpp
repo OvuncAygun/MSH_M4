@@ -20,7 +20,6 @@ void MSH_M4::initializeStates() {
 void MSH_M4::initializeStateManager() {
     stateManager = new StateManager();
     stateManager->setState(new Normal());
-    static_cast<StateManager*>(stateManager)->getHistoryIterator();
 }
 
 IStateManager* MSH_M4::getStateManager() {
