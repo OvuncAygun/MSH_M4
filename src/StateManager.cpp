@@ -31,7 +31,7 @@ IState* StateManager::getCurrentState(){
 
 void StateManager::storeCurrentState() {
     if (currentState) {
-        history.push_back(currentState);
+        iterator->addState(currentState);
     }
 }
 

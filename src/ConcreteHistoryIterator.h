@@ -16,6 +16,7 @@ public:
     State* next() override;
     bool hasPrevious() override;
     State* previous() override;
+    void addState(State* state) override;
 };
 
 #endif

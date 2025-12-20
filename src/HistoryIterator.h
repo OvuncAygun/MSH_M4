@@ -10,6 +10,7 @@ public:
     virtual State* next() = 0;
     virtual bool hasPrevious() = 0;
     virtual State* previous() = 0;
+    virtual void addState(State* state) = 0;
 };
 
 #endif

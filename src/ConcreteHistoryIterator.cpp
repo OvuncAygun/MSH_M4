@@ -26,3 +26,16 @@ State* ConcreteHistoryIterator::previous() {
     }
     return 0;
 }
+
+void ConcreteHistoryIterator::addState(State* state) {
+    if (index < (int)historyRef.size() - 1) {
+        
+        for (size_t i = index + 1; i < historyRef.size(); ++i) {
+            delete historyRef[i]; 
+        }
+        
+        historyRef.erase(historyRef.begin() + index + 1, historyRef.end());
+    }
+    historyRef.push_back(state);
+    index = historyRef.size() - 1;
+}
